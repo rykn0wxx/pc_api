@@ -27,7 +27,6 @@ __pycache__/
 
 # Distribution / packaging
 .Python
-output/
 build/
 develop-eggs/
 dist/
@@ -208,4 +207,5 @@ pyrightconfig.json
 .history
 .ionide
 
-# End of https://www.toptal.com/developers/gitignore/api/linux,python,visualstudiocode
+output/
+csv/
