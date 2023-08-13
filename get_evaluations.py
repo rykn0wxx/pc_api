@@ -31,7 +31,7 @@ qa_api = PureCloudPlatformClientV2.QualityApi(api)
 def get_qa_evaluations():
     qa_data = []
     qry = PureCloudPlatformClientV2.EvaluationAggregationQuery()
-    qry.interval = "2023-01-01T00:00:00.000Z/2023-07-24T00:00:00.000Z"
+    qry.interval = "2023-07-24T00:00:00.000Z/2023-08-07T00:00:00.000Z"
     qry.granularity = "P1D"
     qry.time_zone = "Etc/UTC"
     qry.group_by = [
