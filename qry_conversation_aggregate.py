@@ -38,7 +38,7 @@ def query_conversations_aggregates():
     qry.granularity = "PT30M"
     qry.flatten_multivalued_dimensions = True
     qry.group_by = ["conversationId","direction","queueId","requestedLanguageId","requestedRoutingSkillId","userId","dnis"]
-    qry.metrics = ["nBlindTransferred","nConnected","nConsult","nConsultTransferred","nError","nOffered","nOutbound","nOverSla","nTransferred","tAbandon","tAcd","tAcw","tAlert","tAnswered","tConnected","tContacting","tDialing","tFlowOut","tHandle","tHeldComplete","tIvr","tMonitoring","tNotResponding","tShortAbandon","tTalkComplete","tVoicemail","tWait"]
+    qry.metrics = ["nBlindTransferred","nConnected","nConsult","nConsultTransferred","nError","nOffered","nOutbound","nOverSla","nTransferred","tAbandon","tAcd","tAcw","tAlert","tAnswered","tContacting","tDialing","tFlowOut","tHandle","tHeldComplete","tIvr","tMonitoring","tNotResponding","tShortAbandon","tTalkComplete","tVoicemail","tWait"]
     try:
         #  Looping thru queues
         for q in queues_arr:
