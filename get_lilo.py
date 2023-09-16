@@ -29,7 +29,7 @@ PureCloudPlatformClientV2.configuration.access_token = api.access_token
 
 usr_api = PureCloudPlatformClientV2.UsersApi()
 usr_filter = PureCloudPlatformClientV2.UserDetailsQuery()
-usr_filter.interval = "2023-07-01T08:00:00.000Z/2023-08-01T08:00:00.000Z"
+usr_filter.interval = "2023-08-01T08:00:00.000Z/2023-09-01T08:00:00.000Z"
 usr_filter.user_filters = [
     {
         "type": "or",

@@ -10,8 +10,18 @@ from PureCloudPlatformClientV2.rest import ApiException
 from pprint import pprint
 from banner import show_banner
 from config.options import Options
+import requests
+from requests.packages.urllib3.exceptions import InsecureRequestWarning
 
-os.system("clear")
+requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+
+if sys.platform == "win32":
+    os.system("cls")
+    oFile = f"{os.getcwd()}\output\conversations_aggregate.json"
+else:
+    os.system("clear")
+    oFile = f"{os.getcwd()}/output/conversations_aggregate.json"
+
 print(show_banner())
 pprint("=====================================")
 pprint("- Querying Conversation Aggregates -")
@@ -22,6 +32,7 @@ output_data = []
 client_id = os.environ.get(Options.client_id)
 client_secret = os.environ.get(Options.client_secret)
 region = PureCloudPlatformClientV2.PureCloudRegionHosts.eu_central_1
+PureCloudPlatformClientV2.configuration.verify_ssl = False
 PureCloudPlatformClientV2.configuration.host = region.get_api_host()
 
 # Creates api client
@@ -71,7 +82,7 @@ def query_conversations_aggregates():
     save_to_file(out_data)
 
 def save_to_file(data):
-    oFile = r"/mnt/hgfs/shared/pc_api/output/conversations_aggregate.json"
+    # oFile = r"/mnt/hgfs/mudhead/pc_api/output/conversations_aggregate.json"
     f = open(oFile, "w", encoding="utf-8")
     f.write(json.dumps(data))
     f.close()
