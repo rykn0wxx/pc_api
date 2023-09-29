@@ -46,6 +46,7 @@ def query_conversations_aggregates():
     agg_api = PureCloudPlatformClientV2.AnalyticsApi(api)
     qry = PureCloudPlatformClientV2.ConversationAggregationQuery()
     queues_arr = Options.purecloud_queues
+    qry.time_zone = Options.tz
     qry.granularity = "PT30M"
     qry.flatten_multivalued_dimensions = True
     qry.group_by = ["conversationId","direction","queueId","requestedLanguageId","requestedRoutingSkillId","userId","dnis"]

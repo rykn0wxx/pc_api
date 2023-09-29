@@ -10,8 +10,18 @@ from PureCloudPlatformClientV2.rest import ApiException
 from pprint import pprint
 from banner import show_banner
 from config.options import Options
+import requests
+from requests.packages.urllib3.exceptions import InsecureRequestWarning
 
-os.system("clear")
+requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+
+if sys.platform == "win32":
+    os.system("cls")
+    oFile = f"{os.getcwd()}/output/users.json"
+else:
+    os.system("clear")
+    oFile = f"{os.getcwd()}/output/users.json"
+
 print(show_banner())
 pprint("================= ")
 pprint(" Get User Listing ")
@@ -22,6 +32,7 @@ out_data = []
 client_id = os.environ.get(Options.client_id)
 client_secret = os.environ.get(Options.client_secret)
 region = PureCloudPlatformClientV2.PureCloudRegionHosts.eu_central_1
+PureCloudPlatformClientV2.configuration.verify_ssl = False
 PureCloudPlatformClientV2.configuration.host = region.get_api_host()
 
 # Creates api client
@@ -51,7 +62,7 @@ except ApiException as e:
     print("Exception when calling UsersApi->get_users: %s\n" % e)
     sys.exit(1)
 
-oFile = f"{os.getcwd()}/output/users.json"
 f = open(oFile, "w", encoding="utf-8")
 f.write(json.dumps(out_data))
 f.close()
+sys.exit(0)
