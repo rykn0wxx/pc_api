@@ -14,4 +14,7 @@
 
 # requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
+from config.options import Options
 
+for q in Options.purecloud_queues:
+    print(len(q))
