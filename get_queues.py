@@ -23,7 +23,7 @@ else:
     oFile = f"{os.getcwd()}/output/pc_queues.json"
 
 print(show_banner())
-pprint(" Get Queue Listing ")
+print(" Get Queue Listing ")
 
 # Preparing global config
 out_data = []

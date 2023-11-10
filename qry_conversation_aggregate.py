@@ -23,9 +23,9 @@ else:
     oFile = f"{os.getcwd()}/output/conversations_aggregate.json"
 
 print(show_banner())
-pprint("=====================================")
-pprint("- Querying Conversation Aggregates -")
-pprint("=====================================")
+print("=====================================")
+print("- Querying Conversation Aggregates -")
+print("=====================================")
 
 # Preparing global config
 output_data = []
@@ -67,7 +67,7 @@ def query_conversations_aggregates():
                     }
                 ]
             }
-            # Looping thru months
+            # Looping thru date intervals
             for mo in Options.reporting_week:
                 qry.interval = mo
                 resp = agg_api.post_analytics_conversations_aggregates_query(qry)
@@ -82,11 +82,13 @@ def query_conversations_aggregates():
 
     save_to_file(out_data)
 
+
 def save_to_file(data):
     # oFile = r"/mnt/hgfs/mudhead/pc_api/output/conversations_aggregate.json"
     f = open(oFile, "w", encoding="utf-8")
     f.write(json.dumps(data))
     f.close()
+
 
 if __name__ == "__main__":
     start_time = time.time()

@@ -71,5 +71,6 @@ banner6 = """
           ░ ░
 """
 
+# YakA6p9N
 def show_banner():
     return random.choice([banner0, banner1, banner2, banner3, banner4, banner5, banner6])
